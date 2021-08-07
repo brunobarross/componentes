@@ -1,0 +1,30 @@
+body{
+        --cor-branco:#E8DCCA;
+        --cor-primaria: #123036;
+        --cor-azul-1: #1D424F;
+        --cor-laranja: #F2A341;
+        --cor-cinza: #F2A341;
+    }
+
+
+//PX TO REM
+$browser-context: 16;
+
+@function rem($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}rem;
+}
+ 
+
+//fontes
+
+$font-1: 'Roboto', sans-serif;
+
+
+//cores
+
+$cor-branco: #{var(--cor-branco)};
+$cor-primaria: #{var(--cor-primaria)
+};
+$cor-azul: #{var(--cor-azul-1)};
+$cor-laranja: #{var(--cor-laranja)};
+$cor-cinza: #{var(--cor-cinza)};
