@@ -3,12 +3,15 @@ body{
 }
    
 
-
-
-
 .menu{
+    position: fixed;
+    width: 100%;
     padding: 32px 0;
     background: #123036;
+    will-change: padding;
+    transition-property: padding;
+    transition: .3s ease;
+    z-index: 100;
     @media (max-width: 1024px){
         display: none;
     }
@@ -20,6 +23,7 @@ body{
         justify-content: space-between
         ;
         align-items: center;
+       
         &-logo{
             color: $cor-branco;
         }
@@ -64,12 +68,18 @@ body{
         }
 
     }
+//ativar ação se scrollar
+    &.scrolou{
+        padding: 16px 0;
+    }
+
+    /*ATIVAR BARRA DE BUSCA*/
+    &.ativar .menu__busca{  
+        opacity: 1;
+    }
 }
 
-.menu.ativar .menu__busca{  
-    opacity: 1;
 
-}
 
 
 
@@ -172,71 +182,3 @@ body{
 
 
 
-/* ACCORDION*/
-
-
-.faq{
-    padding-top: 128px;
-    h2{
-        text-align: center;
-        font-weight: 500;
-        font-size: rem(32);
-    }
-    &__wrapper{
-        padding: 64px 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        &-item{
-            margin-bottom: 32px;
-          
-            width: 100%;
-            padding: 16px;
-            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-            h3{
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                cursor: pointer;
-                color: $cor-preto;
-                font-weight: 500;
-                ion-icon{
-                    font-size: rem(14);
-                    will-change: transform;
-                    transition: .3s ease;
-                    color: $cor-laranja;
-                }
-            }
-
-            p{
-                display: none;  
-                color: $cor-preto;
-                     
-            }
-        }
-    }
-}
-
-.faq__wrapper-item h3.ativar{
-    ion-icon{
-        transform: rotate(-180deg);
-    }
-}
-
- .faq__wrapper-item p.ativar{
-    display: block;
-    animation: slideDown .3s forwards;
-}
-
-@keyframes slideDown {
-    from{
-      opacity: 0;
-      max-height: 0;
-      padding-top: 0;
-    }
-    to{
-      opacity: 1;
-      max-height: 200px;
-      padding-top: 16px;
-    }
-  }

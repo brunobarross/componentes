@@ -14,8 +14,27 @@ function Dom(elemento){
     }
 }
 
-/***BARRA DE BUSCA MENU DESKTOP ***/
 
+function menuScroll(){
+    const menu = document.querySelector(".menu");
+ 
+
+    window.addEventListener('scroll', animaMenu)
+
+    function animaMenu(){
+        const distanciaTopo = window.pageYOffset;
+        if((distanciaTopo) > menu.offsetTop){
+            menu.classList.add('scrolou');
+        } else {
+            menu.classList.remove('scrolou')
+        }
+    }
+}
+
+menuScroll()
+
+
+/***BARRA DE BUSCA MENU DESKTOP ***/
 function barraBusca(){
     const menu = document.querySelector(".menu")
     const adicionarClasse = new Dom('.menu');
@@ -47,6 +66,7 @@ barraBusca();
 /**ATIVAR MENU MOBILE */
 function menuMobile(){
     if(tamanhoTela){
+        const menuMobile = document.querySelector('.menu__mobile');
         const adicionarClasse = new Dom(".menu__mobile");
         const iconeMenu = document.querySelector(".menu__mobile-wrapper-burger");
         const fundo = document.querySelector(".fundo");
@@ -54,9 +74,20 @@ function menuMobile(){
         iconeMenu.addEventListener("click", (evento)=>{
             adicionarClasse.addClasse("ativar");
         });
+
+        fundo.addEventListener("click", (evento)=>{
+            if(menuMobile.classList.contains('ativar') && evento.target === fundo){
+                menuMobile.classList.remove('ativar');
+            }
+        })
     }
 }
 menuMobile();
+
+
+
+/**EVENTO MENU SCROLL */
+
 
 
 /******ACCORDION ******/
