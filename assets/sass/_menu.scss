@@ -22,7 +22,7 @@
             li a {
                 display: block;
                 padding: rem(8);
-                color: #E8DCCA;
+                color: $cor-branco;
             }
         }
     }
@@ -62,11 +62,15 @@
 
 
 
+/* ACCORDION*/
+
 
 .faq{
     padding: 80px 0;
     h2{
         text-align: center;
+        font-weight: 500;
+        font-size: rem(32);
     }
     &__wrapper{
         padding: 64px 0;
@@ -74,41 +78,55 @@
         flex-direction: column;
         align-items: center;
         &-item{
-            padding-bottom: 32px;
+            margin-bottom: 32px;
+          
+            width: 100%;
+            padding: 16px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
             h3{
-                display: inline-flex;
+                display: flex;
                 align-items: center;
-                padding-bottom: 16px;
+                justify-content: space-between;
+                cursor: pointer;
+                color: $cor-preto;
+                font-weight: 500;
                 ion-icon{
-                    margin-left: 16px;
                     font-size: rem(14);
+                    will-change: transform;
+                    transition: .3s ease;
+                    color: $cor-laranja;
                 }
             }
 
             p{
-                display: none;
-                animation: slideDown .3s forwards;
+                display: none;  
+                color: $cor-preto;
+                     
             }
         }
     }
 }
 
 .faq__wrapper-item h3.ativar{
-
+    ion-icon{
+        transform: rotate(-180deg);
+    }
 }
 
  .faq__wrapper-item p.ativar{
     display: block;
-    opacity: 1;
+    animation: slideDown .3s forwards;
 }
 
 @keyframes slideDown {
     from{
       opacity: 0;
       max-height: 0;
+      padding-top: 0;
     }
     to{
       opacity: 1;
       max-height: 200px;
+      padding-top: 16px;
     }
   }

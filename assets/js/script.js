@@ -14,25 +14,41 @@ function Dom(elemento){
 
 
 function barraBusca(){
+    const menu = document.querySelector(".menu")
     const adicionarClasse = new Dom('.menu');
+    const lupa = document.querySelector('.lupa');
 
-const lupa = document.querySelector('.lupa');
+
 
 lupa.addEventListener("click", ()=>{
     adicionarClasse.addClasse('ativar');
+
 });
+
+document.addEventListener('click', function(event) {
+    let clicouDentro = menu.contains(event.target);
+    if (clicouDentro) {
+        console.log('clicou dentro')
+    } else {
+      menu.classList.remove('ativar');
+      console.log('clicou fora');
+    }
+});
+
 }
 
 barraBusca();
 
+
+
 /******ACCORDION ******/
 
 function accordion(){
-    const adicionarClasse = new Dom('.faq');
     const perguntas = document.querySelectorAll('.faq__wrapper-item h3');
+    perguntas[0].classList.add("ativar")
+    perguntas[0].nextElementSibling.classList.add("ativar")
 
     perguntas.forEach((pergunta) =>{
-        pergunta.classList.remove('ativar')
         pergunta.addEventListener('click', mostraResposta)
     });
 
@@ -40,11 +56,14 @@ function accordion(){
     function mostraResposta(evento){
         this.classList.toggle('ativar');
         this.nextElementSibling.classList.toggle('ativar');
+      
     }
 
 }
 
-accordion(console.log('iniciei'));
+accordion();
+
+
 
 
 

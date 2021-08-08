@@ -1,9 +1,10 @@
 body{
-        --cor-branco:#E8DCCA;
+        --cor-branco:#F2F2F2;
         --cor-primaria: #123036;
         --cor-azul-1: #1D424F;
         --cor-laranja: #F2A341;
-        --cor-cinza: #F2A341;
+        --cor-cinza: #4E5966;
+        --cor-preto: rgba(22, 21, 21, 0.822); 
     }
 
 
@@ -28,3 +29,4 @@ $cor-primaria: #{var(--cor-primaria)
 $cor-azul: #{var(--cor-azul-1)};
 $cor-laranja: #{var(--cor-laranja)};
 $cor-cinza: #{var(--cor-cinza)};
+$cor-preto: #{var(--cor-preto)};
