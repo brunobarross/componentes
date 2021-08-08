@@ -1,3 +1,6 @@
+
+ const tamanhoTela = window.matchMedia("(max-width: 1024px)").matches;
+
 function Dom(elemento){
     const elementoSelecionado = document.querySelector(elemento)
     this.element = elementoSelecionado;
@@ -11,7 +14,7 @@ function Dom(elemento){
     }
 }
 
-
+/***BARRA DE BUSCA MENU DESKTOP ***/
 
 function barraBusca(){
     const menu = document.querySelector(".menu")
@@ -34,11 +37,26 @@ document.addEventListener('click', function(event) {
       console.log('clicou fora');
     }
 });
-
 }
 
 barraBusca();
 
+
+
+
+/**ATIVAR MENU MOBILE */
+function menuMobile(){
+    if(tamanhoTela){
+        const adicionarClasse = new Dom(".menu__mobile");
+        const iconeMenu = document.querySelector(".menu__mobile-wrapper-burger");
+        const fundo = document.querySelector(".fundo");
+
+        iconeMenu.addEventListener("click", (evento)=>{
+            adicionarClasse.addClasse("ativar");
+        });
+    }
+}
+menuMobile();
 
 
 /******ACCORDION ******/
@@ -56,7 +74,6 @@ function accordion(){
     function mostraResposta(evento){
         this.classList.toggle('ativar');
         this.nextElementSibling.classList.toggle('ativar');
-      
     }
 
 }
