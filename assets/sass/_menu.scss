@@ -87,11 +87,19 @@
 
             p{
                 display: none;
+                opacity: 0;
+                transition-property: opacity;
+                transition: .3s ease;
             }
         }
     }
 }
 
-.faq.ativar .faq__wrapper-item p{
+.faq__wrapper-item h3.ativar{
+
+}
+
+ .faq__wrapper-item p.ativar{
     display: block;
+    opacity: 1;
 }

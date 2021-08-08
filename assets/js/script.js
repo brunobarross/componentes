@@ -32,13 +32,14 @@ function accordion(){
     const perguntas = document.querySelectorAll('.faq__wrapper-item h3');
 
     perguntas.forEach((pergunta) =>{
+        pergunta.classList.remove('ativar')
         pergunta.addEventListener('click', mostraResposta)
     });
 
 
     function mostraResposta(evento){
-  
-
+        this.classList.toggle('ativar');
+        this.nextElementSibling.classList.toggle('ativar');
     }
 
 }
